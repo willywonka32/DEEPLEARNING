@@ -1,52 +1,42 @@
-# Human Activity Recognition using Deep Learning 
+This Python code showcases human activity recognition by leveraging a pre-trained model and MediaPipe for pose estimation. It operates by capturing frames from either a video input or a live webcam feed, and subsequently predicts activities within the frames through a deep neural network.
 
-This Python code demonstrates human activity recognition using a pre-trained model and MediaPipe for pose estimation. It reads a video input or a live web-cam feed, captures frames, and predicts the activity in the captured frames using a deep neural network.
+**Requirements:**
 
-Requirements: 
+To execute this code, ensure you have these packages installed:
 
-To run this code, you need to have the following packages installed:
+- `collections`
+- `numpy`
+- `opencv-python`
+- `mediapipe`
+- `onnx`
 
-- collections
-- numpy
-- opencv-python
-- mediapipe
-- onnx
+**Running the Code:**
 
-Download the model and place it in the model Directory
+To initiate the code, run the subsequent command in your terminal:
 
-https://drive.google.com/file/d/1QPXJB6AHBFH957Q_CSCFkxkoFAYTIq1J/view?usp=share_link
+For webcam feed:
+```bash
+python live.py
+```
 
+For video file input:
+```bash
+python video.py
+```
 
-Running the Code
+Press 'q' to exit the application.
 
-To run the code, execute the following command in your terminal:
+**Code Overview:**
 
-- python live.py
+The `Parameters` class sets up crucial paths and constants within the code.
 
-This will start capturing frames from your default webcam. If you want to use a video file instead of the webcam
+1. A deque named `captures` is employed to store the acquired frames.
+2. The pre-trained human activity recognition model is loaded using the `cv2.dnn.readNet` function from OpenCV.
+3. The MediaPipe pose estimation component is configured.
+4. Frames are processed, resized, and added to the deque.
+5. The code predicts activities within the captured frames using the pre-trained model.
+6. Pose estimation is performed on the frames using MediaPipe.
+7. Predicted activities and estimated poses are visualized on the frames.
+8. Processed frames are displayed on the screen.
 
-
-- python video.py
-
-Press the q key to exit the application.
-
-
-
-Code Overview
-
-The Parameters class initializes important paths and constants for the code.
-- A double-ended queue named captures is created to store the captured frames.
-- The pre-trained human activity recognition model is loaded using OpenCV's cv2.dnn.readNet function.
-- The MediaPipe pose estimation is set up.
-- The captured frames are processed and resized and are added to the deque.
-- The code predicts the activity in the captured frames using the pre-trained model.
-- The MediaPipe is used to estimate the pose in the captured frames.
-- The predicted activity and pose are drawn on the captured frames.
-- The captured frames are displayed on the screen.
-
-
-Acknowledgments
-
-
-This code is based on the tutorial by Adrian Rosebrock on PyImageSearch Human Activity Recognition with OpenCV and Deep Learning.
-https://pyimagesearch.com/2019/11/25/human-activity-recognition-with-opencv-and-deep-learning/
+Feel free to reach out if you need further assistance or if you would like to improve any specific aspect of the code explanation.
